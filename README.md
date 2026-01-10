@@ -1,31 +1,31 @@
 # Server - Web Development Project
 
-Yeh is project ka **Backend (Server-side)** code hai. Isse Node.js, Express.js aur MongoDB ka use karke banaya gaya hai. Isme secure authentication (Login/Register), data validation, aur database connectivity handle ki gayi hai.
+This is the **Backend (Server-side)** code for the project. It is built using Node.js, Express.js, and MongoDB. It handles secure authentication (Login/Register), data validation, and database connectivity.
 
 ## 🛠️ Tech Stack
 
-Is project mein neeche di gayi technologies use ki gayi hain:
+The following technologies are used in this project:
 
 - **Node.js**: JavaScript Runtime environment.
-- **Express.js**: Backend framework API routes banane ke liye.
-- **MongoDB & Mongoose**: Database aur schema modeling ke liye.
-- **JWT (JSON Web Token)**: Secure authentication aur authorization ke liye.
-- **Bcryptjs**: Passwords ko secure (hash) karne ke liye.
-- **Zod**: User input validation ke liye (Middleware ke through).
+- **Express.js**: Backend framework for building API routes.
+- **MongoDB & Mongoose**: Database and schema modeling.
+- **JWT (JSON Web Token)**: For secure authentication and authorization.
+- **Bcryptjs**: For securing (hashing) passwords.
+- **Zod**: For user input validation (via Middleware).
 
 ## 🚀 Features
 
-- **User Registration**: Naya user create karna, password ko hash karke save karna.
-- **User Login**: Email aur password verify karna aur JWT token generate karna.
-- **Input Validation**: Zod schema ka use karke request data ko validate karna (jaise email format, password length).
-- **Middleware Support**: Error handling aur validation ke liye custom middlewares.
+- **User Registration**: Create new users, hash passwords, and save to database.
+- **User Login**: Verify email and password, and generate JWT tokens.
+- **Input Validation**: Validate request data using Zod schema (e.g., email format, password length).
+- **Middleware Support**: Custom middlewares for error handling and validation.
 
 ## ⚙️ Installation & Setup
 
-Apne local machine par server run karne ke liye neeche diye gaye steps follow karein:
+Follow the steps below to run the server on your local machine:
 
-### 1. Folder mein jayein
-Terminal open karein aur server directory mein navigate karein:
+### 1. Navigate to the folder
+Open the terminal and navigate to the server directory:
 ```bash
 cd server
 ```
