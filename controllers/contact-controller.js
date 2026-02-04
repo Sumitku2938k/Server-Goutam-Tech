@@ -1,5 +1,6 @@
 const Contact = require('../models/contact-model');
 
+//What expecting from contact form while submission from frontend
 const contactForm = async (req, res) => {
     try {
         const response = req.body;
