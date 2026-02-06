@@ -51,19 +51,19 @@ const register = async (req, res) => {
 const login = async (req, res) => {
   try {
     const { email, password } = req.body; //Get email and password from request body
-    const user = await User.findOne({ email }); //Find user by email
+    const userExist = await User.findOne({ email }); //Check user exist by email
 
-    if (!user) { //If user not found
+    if (!userExist) { //If user not found
       return res.status(400).json({ message: "Invalid Credentials" });
     }
-    const isPasswordValid = await user.comparePassword(password); //Compare password
+    const isPasswordValid = await userExist.comparePassword(password); //Compare password
 
     if(isPasswordValid){
       res.status(200).json({
         message: "User Logged In Successfully",
         //user: user,
-        token: await user.generateToken(),
-        userId: user._id.toString(),
+        token: await userExist.generateToken(),
+        userId: userExist._id.toString(),
       });
     }else{
       res.status(401).json({ msg: "Invalid email or password" });
