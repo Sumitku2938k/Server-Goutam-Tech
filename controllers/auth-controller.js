@@ -28,7 +28,7 @@ const register = async (req, res) => {
 
     const userCreated = await User.create({ username, email, phone, password }); //Create new user
 
-    console.log(req.body);
+    console.log("Registered User:",req.body); //Log the request body to verify the received data
     res
       .status(200)
       .json({
