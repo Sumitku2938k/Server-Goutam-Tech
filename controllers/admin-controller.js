@@ -1,4 +1,5 @@
 const User = require("../models/user-model");
+const Contact = require("../models/contact-model");
 
 const getAllUsers = async (req, res) => {
     try {
@@ -12,7 +13,20 @@ const getAllUsers = async (req, res) => {
         console.error("Error in fetching all users : ", error);
         next(error);
     }
-    
 };
 
-module.exports = getAllUsers;
+const getAllContacts = async (req, res) => {
+    try {
+        const contacts = await Contact.find(); //Fetch all contacts data from DB 
+        console.log("Contacts data : ", contacts);
+        if(!contacts || contacts.length === 0){
+            return res.status(404).json({message: "No contacts found"});
+        }
+        return res.status(200).json(contacts);
+    } catch (error) {
+        console.error("Error in fetching all contacts : ", error);
+        next(error);
+    }
+}
+
+module.exports = { getAllUsers, getAllContacts };
