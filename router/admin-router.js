@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { getAllUsers, getAllContacts } = require("../controllers/admin-controller");
+const { getAllUsers, getAllContacts, deleteUserById} = require("../controllers/admin-controller");
 const authMiddleware = require("../middlewares/auth-middleware");  // Check if user is authenticated i.e logged in and token is valid
 const adminMiddleware = require("../middlewares/admin-middleware"); // Check if user has admin privileges, this middleware should be used after authMiddleware because it relies on req.user data set by authMiddleware
 
@@ -8,6 +8,8 @@ const adminMiddleware = require("../middlewares/admin-middleware"); // Check if 
 // router.use(authMiddleware);
 
 router.route("/users").get(authMiddleware, adminMiddleware, getAllUsers);
+router.route("/users/delete/:id").delete(authMiddleware, adminMiddleware, deleteUserById);
+
 router.route("/contacts").get(authMiddleware, adminMiddleware, getAllContacts);
 
 module.exports = router;
