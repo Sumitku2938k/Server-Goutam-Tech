@@ -28,6 +28,21 @@ const getUserById = async (req, res) => {
     }
 }
 
+//User update logic
+const updateUserById = async (req, res) => {
+    try {
+        const id = req.params.id;
+        const { username, email, phone } = req.body;
+        const updatedUser = await User.findByIdAndUpdate(id, { username, email, phone }, { new: true });
+        if(!updatedUser){
+            return res.status(404).json({message: "User not found"});
+        }
+        return res.status(200).json(updatedUser);
+    } catch (error) {
+        next(error);
+    }
+}
+
 //User delete logic
 const deleteUserById = async (req, res) => {
     try {
@@ -53,4 +68,4 @@ const getAllContacts = async (req, res) => {
     }
 }
 
-module.exports = { getAllUsers, getAllContacts, deleteUserById, getUserById };
+module.exports = { getAllUsers, getAllContacts, deleteUserById, getUserById, updateUserById };
